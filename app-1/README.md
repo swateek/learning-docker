@@ -29,6 +29,7 @@ docker logs <container-name-or-container-id>
 
 # demonstrate container naming and removals
 docker run --name app1 -tid app1 sh -c "sh /app/sample.sh"
+docker run --name app1 -tid app1 sh -c "sh /app/sample.sh"
 docker ps -a
 docker rm -f <container-name-or-container-id>
 
