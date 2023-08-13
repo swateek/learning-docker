@@ -49,6 +49,15 @@ cat tmp-dir/stmt.txt
 docker rm -f app2-cntnr
 cat tmp/stmt.txt
 
+# multi stage build
+cd app-2
+docker build -f Dockerfile.multistage -t app2-multistage .
+docker images # show size
+docker run --rm -tid --name app2-multi -p 4000:80 app2-multistage
+curl -X GET --location 'http://localhost:4000/'
+
+# Clean the system
+docker system prune -f
 ```
 
 **References**
